@@ -79,7 +79,6 @@ router.get('/getData/:name',auth,async(req,res)=>{
         const data = await Budget.findOne({username : req.params.name})
         if(data) {
             return res.status(200).json({
-            username : data.username,
                totalCredit : data.totalCredit,
                totalDebit : data.totalDebit,
                credit : data.credit,
