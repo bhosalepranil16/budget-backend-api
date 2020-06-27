@@ -23,7 +23,7 @@ const budgetSchema = mongoose.Schema({
         default : 0
     },
     credit : [{
-        title : {
+        description : {
             type : String,
         },
         price : {
@@ -32,7 +32,7 @@ const budgetSchema = mongoose.Schema({
         }
     }],
     debit : [{
-        title : {
+        description : {
             type : String,
         },
         price : {
