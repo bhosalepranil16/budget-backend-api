@@ -47,7 +47,7 @@ router.post('/addUser',async(req,res) => {
     }
 })
 
-router.get('/login',async(req,res) => {
+router.post('/login',async(req,res) => {
     try {
         const user = await Budget.findOne({ username : req.body.username })
         if(user) {
