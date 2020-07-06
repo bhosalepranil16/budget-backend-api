@@ -26,7 +26,7 @@ const budgetSchema = mongoose.Schema({
         description : {
             type : String,
         },
-        price : {
+        amount : {
             type : Number,
             default : 0
         }
@@ -35,7 +35,7 @@ const budgetSchema = mongoose.Schema({
         description : {
             type : String,
         },
-        price : {
+        amount : {
             type : Number,
             default : 0
         }
