@@ -103,16 +103,17 @@ router.patch('/updateData/:name',auth,async(req,res) => {
                 error : 'not found'
             })
         }
-        console.log(user,'user')
-        // console.log(req.body.user)
         const newUser = {
             ...user._doc,
             ...req.body.user
         }
-        console.log('new user',newUser)
         await Budget.replaceOne({ username : req.params.name },newUser);
         res.status(200).json({
-            msg : 'updated'
+            msg : 'updated',
+            totalCredit : newUser.totalCredit,
+            totalDebit : newUser.totalDebit,
+            credit : newUser.credit,
+            debit : newUser.debit
         })
     } catch (error) {
         res.status(500).json({
