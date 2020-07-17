@@ -97,7 +97,7 @@ router.get('/getData/:name',auth,async(req,res)=>{
     }
 })
 
-router.patch('/updateData/:name',auth,async(req,res) => {
+router.patch('/updateData/:name',cors(),auth,async(req,res) => {
     try {
         const user = await Budget.findOne({username : req.params.name})
         if(!user) {
@@ -124,7 +124,7 @@ router.patch('/updateData/:name',auth,async(req,res) => {
     }
 })
 
-router.delete('/deleteUser/:name',auth,async(req,res) => {
+router.delete('/deleteUser/:name',cors(),auth,async(req,res) => {
     try {
         await Budget.deleteOne({ username : req.params.name })
         res.status(200).json({
