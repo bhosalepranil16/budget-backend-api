@@ -3,6 +3,8 @@ const router = express.Router()
 const mongoose = require('mongoose')
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
+const cors = require('cors');
+
 const Budget = require('../db/schema')
 
 
@@ -26,7 +28,7 @@ const auth = async (req, res, next) => {
 
 module.exports = auth
 
-router.post('/addUser',async(req,res) => {
+router.post('/addUser',cors(),async(req,res) => {
     const user = new Budget({
         _id : new mongoose.Types.ObjectId,
         username : req.body.username.trim(),
@@ -47,7 +49,7 @@ router.post('/addUser',async(req,res) => {
     }
 })
 
-router.post('/login',async(req,res) => {
+router.post('/login',cors(),async(req,res) => {
     try {
         const user = await Budget.findOne({ username : req.body.username })
         if(user) {
